@@ -20,8 +20,13 @@ include_once './dbconn_proc.php';
       
       print_r($result);
       
-      $row = mysqli_fetch_assoc($result);
-       print_r($row);
+      // asocijacija
+      // $row = mysqli_fetch_assoc($result);
+      
+      // indeksno
+      $row = mysqli_fetch_row($result);
+      
+      print_r($row);
       echo "</pre><hr>";
        echo "<br>Broj redova vraćenih querijem:".$result->num_rows;
        echo "<br>Broj redova vraćenih querijem:".mysqli_num_rows($result);
@@ -32,8 +37,9 @@ include_once './dbconn_proc.php';
        echo "<br>Broj redova vraćenih querijem:".vrati_broj_redova($result);
        echo "<hr>";
       
-      while ($row = mysqli_fetch_assoc($result)) {
-          echo $row['imeStud']." ".$row['prezStud']. " ".$row['mbrStud']."<br>";
+      while ($row = mysqli_fetch_row($result)) {
+          //echo $row['imeStud']." ".$row['prezStud']. " ".$row['mbrStud']."<br>";
+          echo $row[1]." ".$row[2]. " ".$row[0]."<br>";
       }
     ?>
     
